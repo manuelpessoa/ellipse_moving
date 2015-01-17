@@ -1,6 +1,6 @@
 class Ball
 {
-  // avoid to use LETTERS as names unless you want to be MIB! ;)
+  // variables
   int delay;
   float x;
   float y;
@@ -19,15 +19,17 @@ class Ball
     cor = colore;
     size = iSize;
     duration = iDuration * 1000;
-    xspeed = random(-0.05, 0.05);
-    yspeed = random(-0.5, 0.05);
+  
+      xspeed = random(-0.05, 0.05);
+      yspeed = random(-0.5, 0.05);
+  
   }
 
 
   void fade()
   {
-     float elapsedTime = millis() - start;
     
+    float elapsedTime = millis() - start;
     if (delay > 0)
         if (elapsedTime < delay)
             return;
@@ -44,12 +46,11 @@ class Ball
     {
       fading = 510 - amount;
     }
-    else return;
+    else start = millis();  
     
-    
-    fill(cor, fading);
+    fill(cor,fading);
     ellipse(x, y, size, size);
-    //println(fading);
+    
   }
   
   void move()
